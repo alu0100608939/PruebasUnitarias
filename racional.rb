@@ -22,5 +22,34 @@ class Fraccion
     z = Fraccion.new(u,v) 
   end
   
+   def resta(other)
+    x = @x*other.y - other.x*@y
+    y = @y*other.y
+    
+    v = x/gcd(x,y)
+    u = y/gcd(x,y)
+    
+    z = Fraccion.new(u,v) 
+  end
+  
+  def producto(other)
+    x = @x*other.x 
+    y = @y*other.y
+    
+    v = x/gcd(x,y)
+    u = y/gcd(x,y)
+    
+   z = Fraccion.new(v,u)
+  end
+  
+  def division(other)
+    x = @x*other.y 
+    y = @y*other.x
+  
+    v = x/gcd(x,y)
+    u = y/gcd(x,y)
+    
+   z = Fraccion.new(v,u)
+  end
   
 end
