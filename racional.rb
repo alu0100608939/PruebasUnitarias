@@ -5,7 +5,8 @@ require "./gcd.rb"
 class Fraccion
   attr_reader :x, :y
   def initialize (x,y)
-    @x,@y = x,y
+    @x = x/gcd(x,y)
+    @y = y/gcd(x,y)
   end
   
   def to_s
