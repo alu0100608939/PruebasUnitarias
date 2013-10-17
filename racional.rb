@@ -9,6 +9,9 @@ class Fraccion
   end
   
   def to_s
+    if @y == 1
+      return "#{@x}"
+    end
     "#{@x}/#{@y}"
   end
   
@@ -19,7 +22,7 @@ class Fraccion
     v = x/gcd(x,y)
     u = y/gcd(x,y)
     
-    z = Fraccion.new(u,v) 
+    z = Fraccion.new(v,u) 
   end
   
    def resta(other)
@@ -29,7 +32,7 @@ class Fraccion
     v = x/gcd(x,y)
     u = y/gcd(x,y)
     
-    z = Fraccion.new(u,v) 
+    z = Fraccion.new(v,u) 
   end
   
   def producto(other)
@@ -50,6 +53,13 @@ class Fraccion
     u = y/gcd(x,y)
     
    z = Fraccion.new(v,u)
+  end
+  
+  def == (other) 
+    if other.instance_of? Fixnum
+      return @x/@y == other
+    end
+    @x == other.x && @y == other.y
   end
   
 end
